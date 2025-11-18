@@ -1,401 +1,643 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jamal Khan - Profile</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: #f4f4f4;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-      overflow: auto; /* 整个页面可滚动 */
-    }
-    .container {
-      width: 100%;
-      max-width: 900px;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
-      box-sizing: border-box;
-      margin-bottom: 40px;
-    }
-    h1, h2, h3 {
-      color: #333;
-      margin-bottom: 10px;
-    }
-    h1 {
-      margin-top: 0;
-    }
-    h2.section-title {
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
-      margin-top: 40px;
-    }
-    ul {
-      line-height: 1.6;
-      padding-left: 20px;
-    }
-    .profile-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 30px;
-    }
-    .profile-header img {
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
-      margin-right: 20px;
-      object-fit: cover;
-    }
-    .profile-header div {
-      max-width: 70%;
-    }
-    .button {
-      display: inline-block;
-      padding: 10px 20px;
-      margin: 20px 0;
-      background-color: #5a6e75;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      text-align: center;
-      border: 1px solid #5a6e75;
-      transition: background-color 0.3s;
-    }
-    .button:hover {
-      background-color: #4a5c62;
-    }
-    .contact-info ul {
-      list-style: none;
-      padding: 0;
-    }
-    .contact-info li {
-      font-size: 1.1em;
-      margin-bottom: 10px;
-    }
-    .contact-info li a {
-      text-decoration: none;
-      color: #5a6e75;
-    }
-    .contact-info li a:hover {
-      text-decoration: underline;
-    }
-    /* 响应式设计 */
-    @media (max-width: 768px) {
-      .profile-header {
-        flex-direction: column;
-        align-items: center;
-      }
-      .profile-header img {
-        width: 100px;
-        height: 100px;
-        margin-right: 0;
-        margin-bottom: 20px;
-      }
-      .container {
-        padding: 15px;
-      }
-    }
-    @media (max-width: 480px) {
-      .container {
-        padding: 10px;
-      }
-      h1 {
-        font-size: 1.6em;
-      }
-      h2 {
-        font-size: 1.4em;
-      }
-      h3 {
-        font-size: 1.2em;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Jamal Khan | Academic Profile</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS Variables for Theming --- */
+        :root {
+            --bg-body: #ffffff;
+            --bg-sidebar: #f8f9fa;
+            --text-primary: #2c3e50;
+            --text-secondary: #546e7a;
+            --accent-color: #294c60; /* Professional Slate Blue */
+            --accent-hover: #1a3649;
+            --border-color: #e0e0e0;
+            --card-bg: #ffffff;
+            --shadow: 0 2px 10px rgba(0,0,0,0.05);
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #121212;
+            --bg-sidebar: #1e1e1e;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-color: #64b5f6; /* Lighter blue for dark mode */
+            --accent-hover: #90caf9;
+            --border-color: #333333;
+            --card-bg: #1e1e1e;
+            --shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        /* --- Global Styles --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            line-height: 1.7;
+            transition: var(--transition);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* --- Layout --- */
+        /* Sidebar */
+        .sidebar {
+            width: 300px;
+            background-color: var(--bg-sidebar);
+            padding: 40px 20px;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+            border-right: 1px solid var(--border-color);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar h1 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .sidebar p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .download-btn {
+            margin-top: 30px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--accent-color);
+            color: white !important;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none !important;
+            transition: opacity 0.2s;
+        }
+
+        .download-btn:hover {
+            opacity: 0.9;
+            background-color: var(--accent-hover);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 300px;
+            flex: 1;
+            padding: 50px 60px;
+            max-width: 1000px;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--bg-sidebar);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 200;
+            box-shadow: var(--shadow);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--border-color);
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 50px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        /* Lists & Items */
+        .item-list {
+            list-style: none;
+        }
+
+        .item-list li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .item-list li::before {
+            content: '•';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Timeline / Positions Style */
+        .timeline-item {
+            margin-bottom: 20px;
+        }
+        .timeline-title {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1.05rem;
+        }
+        .timeline-meta {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        /* Publications */
+        .pub-item {
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+        .pub-title {
+            font-weight: 600;
+        }
+        .pub-journal {
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        /* Hidden Content Logic */
+        .hidden-content {
+            display: none;
+        }
+        
+        .show-more-btn {
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
+        }
+        
+        .show-more-btn:hover {
+            background: var(--accent-color);
+            color: #fff;
+        }
+
+        /* Skills Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background-color: var(--bg-sidebar);
+            border: 1px solid var(--border-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 30px 20px;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 30px 20px;
+            }
+            .theme-toggle {
+                top: 15px;
+                right: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <!-- 个人基本信息 -->
-    <div class="profile-header">
-      <img src="Jamal Khan Photo.jpg" alt="Dr. Jamal Khan">
-      <div>
+
+    <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <aside class="sidebar">
+        <img src="Jamal Khan Photo.jpg" alt="Dr. Jamal Khan" class="profile-img">
         <h1>Dr. Jamal Khan</h1>
-        <p>Institute for International Studies, Shandong University, China</p>
-        <p>Email: <a href="mailto:jamalkhan_87@yahoo.com">jamalkhan_87@yahoo.com</a></p>
-      </div>
-    </div>
+        <p>Institute for International Studies</p>
+        <p>Shandong University, China</p>
+        
+        <div class="social-links">
+            <a href="mailto:jamalkhan_87@yahoo.com" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
 
-    <!-- 学术职位 -->
-    <h2 class="section-title">Academic Positions</h2>
-    <ul>
-      <li><b>Postdoctoral Researcher</b> – Institute for International Studies, Shandong University</li>
-      <li><b>Research Affiliate</b> – The Global Economic Policy Group (GEPG)  
-        <br>University of Westminster (UK), Fern Universität in Hagen (Germany), and Shandong University (China)
-      </li>
-      <li><b>Research Fellow</b> – Centre for Global Development and BRI Studies, Shandong University  
-        <br>&amp; Data Analysis Center for Area Studies, Shandong University
-      </li>
-      <li><b>Junior Lecturer and Research Assistant</b> – Institute for Development of Central China, Wuhan University</li>
-      <li><b>Research Assistant and Visiting Lecturer</b> – Department of Economics, Hazara University</li>
-    </ul>
+        <div style="margin-top: 20px; font-size: 0.85rem; color: var(--text-secondary);">
+            <p>Email: jamalkhan_87@yahoo.com</p>
+        </div>
 
-    <!-- 教育经历 -->
-    <h2 class="section-title">Education</h2>
-    <ul>
-      <li>
-        <b>PhD in Regional Economics</b> – Wuhan University, China  
-        <br>Thesis: <i>Essays on International Trade and Climate Change</i>  
-        <br>Supervisors: Prof. Huang Yongming (Wuhan University) &amp; Prof. Eric Girardin (Aix Marseille University, France)
-      </li>
-      <li><b>M.Phil. in Economics</b> – Hazara University, Pakistan</li>
-      <li><b>MA in Economics</b> – Hazara University, Pakistan</li>
-      <li><b>BBA Hon’s in Finance</b> – Hazara University, Pakistan</li>
-    </ul>
+        <a href="CV_JAMAL_KHAN.pdf" class="download-btn" download>
+            <i class="fas fa-file-download"></i> Download CV
+        </a>
+    </aside>
 
-    <!-- 研究与教学兴趣 -->
-    <h2 class="section-title">Research and Teaching Interests</h2>
-    <ul>
-      <li><b>Research Interests:</b> Development Economics, Structural Changes, Climate and Trade Interactions (EU Border Carbon Adjustments), Belt and Road Economics, Global Value Chains (GVCs), and Sector Analysis.</li>
-      <li><b>Teaching Interests:</b> Input-Output Analysis, Advanced Macroeconomics, Microeconomics, Mathematical Economics, Econometrics.</li>
-    </ul>
+    <main class="main-content">
+        
+        <section id="positions">
+            <h2 class="section-title">Academic Positions</h2>
+            <div class="timeline-item">
+                <div class="timeline-title">Postdoctoral Researcher</div>
+                <div class="timeline-meta">Institute for International Studies, Shandong University</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">Research Affiliate</div>
+                <div class="timeline-meta">The Global Economic Policy Group (GEPG) — University of Westminster (UK), Fern Universität in Hagen (Germany), and Shandong University (China)</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">Research Fellow</div>
+                <div class="timeline-meta">Centre for Global Development and BRI Studies & Data Analysis Center for Area Studies, Shandong University</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">Junior Lecturer and Research Assistant</div>
+                <div class="timeline-meta">Institute for Development of Central China, Wuhan University</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">Research Assistant and Visiting Lecturer</div>
+                <div class="timeline-meta">Department of Economics, Hazara University</div>
+            </div>
+        </section>
 
-    <!-- 出版物 -->
-    <h2 class="section-title">Publications</h2>
-    
-   <!-- 修改部分: 显示部分内容，并加一个按钮显示剩余部分 -->
-<h3>Published Papers</h3>
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline-item">
+                <div class="timeline-title">PhD in Regional Economics</div>
+                <div class="timeline-meta">Wuhan University, China</div>
+                <p style="font-size: 0.9rem; margin-top: 5px; color: var(--text-secondary);">
+                    Thesis: <i>Essays on International Trade and Climate Change</i><br>
+                    Supervisors: Prof. Huang Yongming & Prof. Eric Girardin
+                </p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">M.Phil. in Economics</div>
+                <div class="timeline-meta">Hazara University, Pakistan</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">MA in Economics</div>
+                <div class="timeline-meta">Hazara University, Pakistan</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">BBA Hon’s in Finance</div>
+                <div class="timeline-meta">Hazara University, Pakistan</div>
+            </div>
+        </section>
 
-<!-- 显示部分内容 -->
-<div id="published-papers">
-  <ul>
-    <li>
-      <b>Khan, J., Li, Y., &amp; Girardin, E. (2022)</b>. "Is a clash coming when trade and climate meet at the border? The impact of the EU’s carbon border adjustment on China’s belt and road initiative."  
-      <i>Structural Change and Economic Dynamics</i>, 63, 112-124.
-    </li>
-    <li>
-      <b>Li, Y. &amp; Khan, J. (2024)</b>. "Decoupling with(out) outsourcing? Quantifying emissions embodied in BRI trade with implications for climate policy."  
-      <i>Elementa: Science of the Anthropocene</i> 12(1).  
-      DOI: <a href="https://doi.org/10.1525/elementa.2023.00068" target="_blank">https://doi.org/10.1525/elementa.2023.00068</a>
-    </li>
-    <li>
-        <b>Khan, J., Li, Y., &amp; Mahsud, Q.J. (2024)</b>. "Linkages and Structural Changes in the Chinese Financial Sector, 1996–2018: A Network and Input–Output Approach."  
-        <i>Structural Change and Economic Dynamics</i>, 70, 33-44.
-      </li>
-      <li>
-        <b>Han, W., Zhang, T., Khan, J., Wang, L., &amp; Tu, C. (2024)</b>. "Going Global in the Digital Era: How Digital Finance Affects Chinese OFDI."  
-        <i>Journal of Organizational and End User Computing (JOEUC)</i>, 36(1), 1-22.
-      </li>
-      <li>
-        <b>Jiang, D., Lin, H., Khan, J., &amp; Han, Y. (2023)</b>. "Professor independent directors, marketization process and corporate innovation performance: Empirical evidence from Chinese A-share listed companies."  
-        <i>International Journal of Manpower</i>, 44(1), 152-175.
-      </li>
-      <li>
-        <b>Huang, Y. &amp; Khan, J. (2022)</b>. "Has the information and communication technology sector become the engine of China’s economic growth?"  
-        <i>Review of Development Economics</i>, 26(1), 510–533.  
-        DOI: <a href="https://doi.org/10.1111/rode.12821" target="_blank">https://doi.org/10.1111/rode.12821</a>
-      </li>
-      <li>
-        <b>Li, J., Rehman, A., &amp; Khan, J. (2023)</b>. "The Role of Education and Innovation in Renewable Energy Consumption in OECD and BRICS Countries."  
-        <i>Problemy Ekorozwoju</i>, 18(2), 102-110.
-      </li>
-      <li>
-        <b>Huang, Y., Haseeb, M., Khan, J., &amp; Hossain, M.E. (2022)</b>. "Structural changes and economic landscape of the Indian economy: 2000‐2019."  
-        <i>Review of Development Economics</i>.
-      </li>
-  </ul>
-</div>
+        <section id="interests">
+            <h2 class="section-title">Interests</h2>
+            <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Research</h3>
+            <div class="skills-container" style="margin-bottom: 20px;">
+                <span class="skill-tag">Development Economics</span>
+                <span class="skill-tag">Structural Changes</span>
+                <span class="skill-tag">Climate and Trade Interactions</span>
+                <span class="skill-tag">EU Border Carbon Adjustments</span>
+                <span class="skill-tag">Belt and Road Economics</span>
+                <span class="skill-tag">GVCs</span>
+                <span class="skill-tag">Sector Analysis</span>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; margin-bottom: 10px;">Teaching</h3>
+            <div class="skills-container">
+                <span class="skill-tag">Input-Output Analysis</span>
+                <span class="skill-tag">Advanced Macroeconomics</span>
+                <span class="skill-tag">Microeconomics</span>
+                <span class="skill-tag">Mathematical Economics</span>
+                <span class="skill-tag">Econometrics</span>
+            </div>
+        </section>
 
-<!-- 显示剩余部分的按钮 -->
-<button id="show-more" onclick="showAll()">Show All</button>
+        <section id="publications">
+            <h2 class="section-title">Publications</h2>
+            
+            <h3>Published Papers</h3>
+            <div id="pub-list">
+                <div class="pub-item">
+                    <span class="pub-title">Khan, J., Li, Y., & Girardin, E. (2022).</span> "Is a clash coming when trade and climate meet at the border? The impact of the EU’s carbon border adjustment on China’s belt and road initiative." <span class="pub-journal">Structural Change and Economic Dynamics</span>, 63, 112-124.
+                </div>
+                <div class="pub-item">
+                    <span class="pub-title">Li, Y. & Khan, J. (2024).</span> "Decoupling with(out) outsourcing? Quantifying emissions embodied in BRI trade with implications for climate policy." <span class="pub-journal">Elementa: Science of the Anthropocene</span> 12(1). <a href="https://doi.org/10.1525/elementa.2023.00068" target="_blank">[DOI]</a>
+                </div>
+                <div class="pub-item">
+                    <span class="pub-title">Khan, J., Li, Y., & Mahsud, Q.J. (2024).</span> "Linkages and Structural Changes in the Chinese Financial Sector, 1996–2018: A Network and Input–Output Approach." <span class="pub-journal">Structural Change and Economic Dynamics</span>, 70, 33-44.
+                </div>
+                <div class="pub-item">
+                    <span class="pub-title">Han, W., Zhang, T., Khan, J., Wang, L., & Tu, C. (2024).</span> "Going Global in the Digital Era: How Digital Finance Affects Chinese OFDI." <span class="pub-journal">Journal of Organizational and End User Computing</span>, 36(1), 1-22.
+                </div>
+                <div class="pub-item">
+                    <span class="pub-title">Jiang, D., Lin, H., Khan, J., & Han, Y. (2023).</span> "Professor independent directors, marketization process and corporate innovation performance: Empirical evidence from Chinese A-share listed companies." <span class="pub-journal">International Journal of Manpower</span>, 44(1), 152-175.
+                </div>
+                
+                <div id="more-pubs" class="hidden-content">
+                    <div class="pub-item">
+                        <span class="pub-title">Huang, Y. & Khan, J. (2022).</span> "Has the information and communication technology sector become the engine of China’s economic growth?" <span class="pub-journal">Review of Development Economics</span>, 26(1), 510–533. <a href="https://doi.org/10.1111/rode.12821" target="_blank">[DOI]</a>
+                    </div>
+                    <div class="pub-item">
+                        <span class="pub-title">Li, J., Rehman, A., & Khan, J. (2023).</span> "The Role of Education and Innovation in Renewable Energy Consumption in OECD and BRICS Countries." <span class="pub-journal">Problemy Ekorozwoju</span>, 18(2), 102-110.
+                    </div>
+                    <div class="pub-item">
+                        <span class="pub-title">Huang, Y., Haseeb, M., Khan, J., & Hossain, M.E. (2022).</span> "Structural changes and economic landscape of the Indian economy: 2000‐2019." <span class="pub-journal">Review of Development Economics</span>.
+                    </div>
+                    <div class="pub-item">
+                        <span class="pub-title">Xiaoke, G., Hongmei, D., & Khan, J. (2023).</span> "Disentangling the heterogeneous effects of different support policies on livestock and poultry farmers’ willingness to utilize manure resources: Evidence from central China." <span class="pub-journal">Frontiers in Environmental Science</span>, 11, 1070423.
+                    </div>
+                    <div class="pub-item">
+                        <span class="pub-title">Li, Y., Khan, J., & Mahsud, Q.J. (2023).</span> "Urban housing prices, female labor participation, and economic development in China: A theoretical and empirical analysis." <span class="pub-journal">Frontiers in Psychology</span>, 13, 970039.
+                    </div>
+                    <div class="pub-item">
+                        <span class="pub-title">Huang, Y., Khan, J., Girardin, E., & Shad, U. (2021).</span> "The Role of the Real Estate Sector in the Structural Dynamics of the Chinese Economy: An Input–Output Analysis." <span class="pub-journal">China World Economy</span>, 29(1), 61-86.
+                    </div>
+                    <div class="pub-item">
+                        <span class="pub-title">Ge, M., Khan, J., & Li, Y. (2022).</span> "Understanding the effect of organizational innovation environment and customer participation in virtual communities on customer creativity: A study of mediating and moderating influences." <span class="pub-journal">Frontiers in Psychology</span>, 13. <a href="https://doi.org/10.3389/fpsyg.2022.913525" target="_blank">[DOI]</a>
+                    </div>
+                    <div class="pub-item">
+                        <span class="pub-title">Cao, X., Kannaiah, D., Ye, L., Khan, J., Shabbir, M.S., Bilal, K., & Tabash, M. (2022).</span> "Does sustainable environmental agenda matter in the era of globalization?" <span class="pub-journal">Environmental Science and Pollution Research</span>. <a href="https://doi.org/10.1007/s11356-022-18772-4" target="_blank">[DOI]</a>
+                    </div>
+                    <div class="pub-item">
+                        <span class="pub-title">Huibo, W., Awan, R.U., Qayyum, A., Munir, A., Khan, J., & Gulzar, F. (2021).</span> "How financial development affects green energy finance?" <span class="pub-journal">Environmental Science and Pollution Research</span>. <a href="https://doi.org/10.1007/s11356-021-16728-8" target="_blank">[DOI]</a>
+                    </div>
+                    <div class="pub-item">
+                        <span class="pub-title">Wu, S., Alharthi, M., Yin, W., Abbas, Q., Shah, A.N., & Khan, J. (2021).</span> "The Carbon-Neutral Energy Consumption and Emission Volatility: The Causality Analysis of ASEAN Region." <span class="pub-journal">Energies</span>, 14(10), 2943.
+                    </div>
+                    <div class="pub-item">
+                        <span class="pub-title">Wang, C., & Khan, J. (2020).</span> "Leverage Design of Consumption Coupons under the Financial Pressure and the Funding Source for Promoting Consumption." <span class="pub-journal">Financial Research</span>, 451(09), 31-41.
+                    </div>
+                    <div class="pub-item">
+                        <span class="pub-title">Zhang, J., Alharthi, M., Abbas, Q., Li, W., Mohsin, M., Khan, J., & Taghizadeh-Hesary, F. (2020).</span> "Reassessing the environmental Kuznets curve in relation to energy efficiency and economic growth." <span class="pub-journal">Sustainability</span>, 12(20), 8346.
+                    </div>
+                </div>
+            </div>
+            <button id="show-more-btn" class="show-more-btn">Show All Publications</button>
 
-<!-- 完整内容部分，默认隐藏 -->
-<div id="full-papers" style="display:none;">
-  <ul>
-      <li>
-        <b>Xiaoke, G., Hongmei, D., &amp; Khan, J. (2023)</b>. "Disentangling the heterogeneous effects of different support policies on livestock and poultry farmers’ willingness to utilize manure resources: Evidence from central China."  
-        <i>Frontiers in Environmental Science</i>, 11, 1070423.
-      </li>
-      <li>
-        <b>Li, Y., Khan, J., &amp; Mahsud, Q.J. (2023)</b>. "Urban housing prices, female labor participation, and economic development in China: A theoretical and empirical analysis."  
-        <i>Frontiers in Psychology</i>, 13, 970039.
-      </li>
-      <li>
-        <b>Huang, Y., Khan, J., Girardin, E., &amp; Shad, U. (2021)</b>. "The Role of the Real Estate Sector in the Structural Dynamics of the Chinese Economy: An Input–Output Analysis."  
-        <i>China World Economy</i>, 29(1), 61-86.
-      </li>
-      <li>
-        <b>Ge, M., Khan, J., &amp; Li, Y. (2022)</b>. "Understanding the effect of organizational innovation environment and customer participation in virtual communities on customer creativity: A study of mediating and moderating influences."  
-        <i>Frontiers in Psychology</i>, 13.  
-        DOI: <a href="https://doi.org/10.3389/fpsyg.2022.913525" target="_blank">https://doi.org/10.3389/fpsyg.2022.913525</a>
-      </li>
-      <li>
-        <b>Cao, X., Kannaiah, D., Ye, L., Khan, J., Shabbir, M.S., Bilal, K., &amp; Tabash, M. (2022)</b>. "Does sustainable environmental agenda matter in the era of globalization? The relationship among financial development, energy consumption, and sustainable environmental-economic growth."  
-        <i>Environmental Science and Pollution Research</i>.  
-        DOI: <a href="https://doi.org/10.1007/s11356-022-18772-4" target="_blank">https://doi.org/10.1007/s11356-022-18772-4</a>
-      </li>
-      <li>
-        <b>Huibo, W., Awan, R.U., Qayyum, A., Munir, A., Khan, J., &amp; Gulzar, F. (2021)</b>. "How financial development affects green energy finance? Relationship between environmental regulation and economic performance."  
-        <i>Environmental Science and Pollution Research</i>, pp.1-16.  
-        DOI: <a href="https://doi.org/10.1007/s11356-021-16728-8" target="_blank">https://doi.org/10.1007/s11356-021-16728-8</a>
-      </li>
-      <li>
-        <b>Wu, S., Alharthi, M., Yin, W., Abbas, Q., Shah, A.N., &amp; Khan, J. (2021)</b>. "The Carbon-Neutral Energy Consumption and Emission Volatility: The Causality Analysis of ASEAN Region."  
-        <i>Energies</i>, 14(10), 2943.
-      </li>
-      <li>
-        <b>Wang, C., &amp; Khan, J. (2020)</b>. "Leverage Design of Consumption Coupons under the Financial Pressure and the Funding Source for Promoting Consumption."  
-        <i>Financial Research</i>, 451(09), 31-41.
-      </li>
-      <li>
-        <b>Zhang, J., Alharthi, M., Abbas, Q., Li, W., Mohsin, M., Khan, J., &amp; Taghizadeh-Hesary, F. (2020)</b>. "Reassessing the environmental Kuznets curve in relation to energy efficiency and economic growth."  
-        <i>Sustainability</i>, 12(20), 8346.
-      </li>
-    </ul>
-    <!-- 其他文献 -->
-  </ul>
-</div>
+            <h3 style="margin-top: 40px;">Under Review & Working Papers</h3>
+            <ul class="item-list">
+                <li>"The effectiveness of Unilateral vs. multilateral Carbon adjustment mechanisms under WTO and Climate rules" – <i>Nature Sustainability</i> (under review)</li>
+                <li>"Should I stay or should I go? The Impact of Public Education Investment on Female Labor Participation" – <i>International Journal of Manpower</i> (under review)</li>
+                <li>"Agglomeration Economies and Regional Inequalities: Theory and Evidence from Provincial China"</li>
+                <li>"Demystifying the ICT sector’s contribution to the Chinese and Indian economies" – <i>Journal of the Knowledge Economy</i> (minor revision)</li>
+                <li>"Why should you blame your neighbor? A Multi-Regional Input–Output Analysis of emissions embodied in China’s international trade"</li>
+            </ul>
 
-<!-- JavaScript 显示全部功能 -->
-<script>
-  function showAll() {
-    document.getElementById("full-papers").style.display = "block";  // 显示完整内容
-    document.getElementById("show-more").style.display = "none";  // 隐藏“显示全部”按钮
-  }
-</script>
+            <h3 style="margin-top: 40px;">Work in Progress</h3>
+            <ul class="item-list">
+                <li>"The Economic Slowdown in Pakistan: Analyzing Sectoral Growth Patterns and Economic Restructuring"</li>
+                <li>"The Dynamic Impact of GVC Participation on Sectoral Labor Reallocation and Structural Change"</li>
+                <li>"Economic Rebalancing of the Chinese Economy: Analyzing Structural Changes and Sectoral Growth Sources"</li>
+            </ul>
 
-  <!-- CSS 样式 -->
-<style>
-    /* 美化按钮样式 */
-    #show-more {
-      background-color: #007BFF;  /* 蓝色背景 */
-      color: white;  /* 白色文字 */
-      border: none;  /* 无边框 */
-      padding: 10px 20px;  /* 上下左右内边距 */
-      font-size: 16px;  /* 字体大小 */
-      border-radius: 5px;  /* 圆角按钮 */
-      cursor: pointer;  /* 鼠标悬停时显示为手型 */
-      transition: background-color 0.3s ease;  /* 平滑过渡效果 */
-    }
-  
-    /* 鼠标悬停时按钮背景色改变 */
-    #show-more:hover {
-      background-color: #0056b3;  /* 悬停时颜色变为深蓝 */
-    }
-  
-    /* 点击时按钮颜色改变 */
-    #show-more:active {
-      background-color: #004085;  /* 点击时颜色变为更深的蓝色 */
-    }
-  </style>   
+            <h3 style="margin-top: 40px;">Books</h3>
+             <ul class="item-list">
+                <li>"Wind from the East: How does the Belt and Road Initiative connect continents to unleash economic potential?" (Co-authored with Li Yuan). Peter Lang, in process.</li>
+            </ul>
+        </section>
 
+        <section id="conferences">
+            <h2 class="section-title">Conferences & Workshops</h2>
+            <ul class="item-list">
+                <li>Cambridge Sustainability Forum 2024, University of Cambridge</li>
+                <li>The Belt and Road Initiative Revisited: Times for Restart? (University of Duisburg-Essen)</li>
+                <li>28th International Input-Output Association Conference (2022, Malaysia)</li>
+                <li>10th Edition of the International School of I-O Analysis (Malaysia)</li>
+                <li>The 10th RUSE Conference (2023, Peking University, China)</li>
+                <li>36th Eurasia Business and Economics Society (EBES) Conference (2021, Turkey)</li>
+                <li>27th International Input-Output Association Conference (2019, Scotland)</li>
+                <li>8th RUSE Conference (2019, Shanghai Jiao Tong University)</li>
+                <li>26th International Input-Output Association Conference (2018, Brazil)</li>
+            </ul>
+        </section>
 
-    <h3>Under Review & Working Papers</h3>
-    <ul>
-      <li>"The effectiveness of Unilateral vs. multilateral Carbon adjustment mechanisms under WTO and Climate rules" – <i>Nature Sustainability</i> (under review) (With Li, Y. &amp; Girardin, E)</li>
-      <li>"Should I stay or should I go? The Impact of Public Education Investment on Female Labor Participation" – <i>International Journal of Manpower</i> (under review)</li>
-      <li>"Agglomeration Economies and Regional Inequalities: Theory and Evidence from Provincial China" – (with Li, Y.)</li>
-      <li>"Demystifying the ICT sector’s contribution to the Chinese and Indian economies" – <i>Journal of the Knowledge Economy</i> (minor revision submitted)</li>
-      <li>"Why should you blame your neighbor? A Multi-Regional Input–Output Analysis of emissions embodied in China’s international trade" – (with Girardin, E)</li>
-    </ul>
+        <section id="awards">
+            <h2 class="section-title">Awards & Grants</h2>
+            <ul class="item-list">
+                <li>Best Paper Award, University of Cambridge (2024)</li>
+                <li>Cambridge Sustainability Forum Mobility Grant (2024)</li>
+                <li>Shandong University Research Annual Seed Fund (2024)</li>
+                <li>IIOA Mobility Grant (2024)</li>
+                <li>Institute of International Studies Seed Grant (Co-PI, 2024)</li>
+                <li>Graduate Scholarship in Regional Economics, CSC (2024)</li>
+                <li>Best Student Paper Contest (PhD student group), Wuhan University (2023)</li>
+                <li>Teaching Assistant Scholarship, Wuhan University (2022)</li>
+                <li>HEC Pakistan Mobility Grant for PhD Scholars (2017)</li>
+            </ul>
+        </section>
 
-    <h3>Work in Progress</h3>
-    <ul>
-      <li>"The Economic Slowdown in Pakistan: Analyzing Sectoral Growth Patterns and Economic Restructuring"</li>
-      <li>"The Dynamic Impact of GVC Participation on Sectoral Labor Reallocation and Structural Change"</li>
-      <li>"Economic Rebalancing of the Chinese Economy: Analyzing Structural Changes and Sectoral Growth Sources"</li>
-    </ul>
+        <section id="misc">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+                <div>
+                    <h2 class="section-title">Technical Skills</h2>
+                    <div class="skills-container">
+                        <span class="skill-tag">Matlab</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">EViews</span>
+                        <span class="skill-tag">STATA</span>
+                        <span class="skill-tag">Microfit</span>
+                        <span class="skill-tag">ArcGIS</span>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="section-title">Memberships</h2>
+                    <ul class="item-list">
+                        <li>International Input-Output Association</li>
+                        <li>The Chinese Economist Society</li>
+                        <li>RUSE China</li>
+                        <li>Committee Member, ICBDAI 2022</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2 class="section-title">Refereeing Activity</h2>
+             <ul class="item-list">
+                <li>Macroeconomic Dynamics</li>
+                <li>Energy & Environment</li>
+                <li>Frontiers in Environmental Sciences</li>
+                <li>Journal of Chinese Economic and Business Studies</li>
+            </ul>
+        </section>
 
-      <!-- 书籍 -->
-    <h3>Books</h3>
-    <ul>
-      <li>"Wind from the East: How does the Belt and Road Initiative connect continents to unleash economicpotential?" Co-authored with Li Yuan. Peter Lang, in process.</li>
-    </ul>
+        <section>
+            <h2 class="section-title">Supervised Students</h2>
+             <ul class="item-list">
+                <li><a href="https://karcen.github.io/zhengjiacheng.github.io/" target="_blank">Jiacheng Zheng</a> (Undergraduate)</li>
+                <li>Lingzhuo Zhao (Undergraduate)</li>
+                <li>Ziming Zhao (Undergraduate)</li>
+            </ul>
+        </section>
 
-    <!-- 会议与工作坊 -->
-    <h2 class="section-title">Conferences & Workshops</h2>
-    <ul>
-      <li>Cambridge Sustainability Forum 2024, University of Cambridge</li>
-      <li>The Belt and Road Initiative Revisited: Times for Restart?  
-        <br>Organized by: The BRImpact Research Group, IFRAE, EURICS, and IN-EAST of the University of Duisburg-Essen
-      </li>
-      <li>28th International Input-Output Association Conference (28 Aug – 02 Sept 2022, Langkawi Island, Malaysia)</li>
-      <li>10th Edition of the International School of I-O Analysis, Langkawi Island, Malaysia</li>
-      <li>The 10th RUSE Conference (21–23 July 2023, Peking University, China)</li>
-      <li>36th Eurasia Business and Economics Society (EBES) Conference (01–03 July 2021, Istanbul, Turkey)</li>
-      <li>27th International Input-Output Association Conference (30 June – 05 July 2019, Glasgow, Scotland)</li>
-      <li>8th RUSE Conference (31 May – 01 June 2019, Shanghai Jiao Tong University, China)</li>
-      <li>26th International Input-Output Association Conference (25–29 June 2018, Juiz De Fora, Brazil)</li>
-    </ul>
+        <section id="references">
+            <h2 class="section-title">References</h2>
+            <p>
+                <b>Prof. Eric Girardin</b><br>
+                Aix-Marseille University, School of Economics, France<br>
+                <a href="mailto:eric.girardin@univ-amu.fr">eric.girardin@univ-amu.fr</a>
+            </p>
+        </section>
 
-    <!-- 奖项、资助与奖学金 -->
-    <h2 class="section-title">Awards, Grants & Scholarships</h2>
-    <ul>
-      <li>Best Paper Award, University of Cambridge (2024)</li>
-      <li>Cambridge Sustainability Forum Mobility Grant (28,000 RMB) (2024)</li>
-      <li>Shandong University Research Annual Seed Fund (10,000 RMB) (2024)</li>
-      <li>IIOA Mobility Grant (US$ 2500) (2024)</li>
-      <li>Institute of International Studies Seed Grant (Co-PI, 20,000 RMB) (2024)</li>
-      <li>Graduate Scholarship in Regional Economics, Chinese Scholarship Council (CSC) (2024)</li>
-      <li>Awarded Best Student Paper Contest (PhD student group), Wuhan University (2023)</li>
-      <li>Teaching Assistant Scholarship, Wuhan University (2022)</li>
-      <li>Higher Education Commission Pakistan Mobility Grant for PhD Scholars (2017)</li>
-      <li>Awarded Laptop under Prime Minister Laptop Scheme (2014)</li>
-      <li>Higher Education Commission (HEC) Pakistan, BBA (Hon’s) (2007)</li>
-    </ul>
+        <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-secondary); text-align: center;">
+            &copy; <span id="year"></span> Dr. Jamal Khan. All rights reserved.
+        </footer>
 
-    <!-- 会员资格 -->
-    <h2 class="section-title">Memberships</h2>
-    <ul>
-      <li>International Input-Output Association</li>
-      <li>The Chinese Economist Society</li>
-      <li>The Regional, Urban, and Spatial Economics in China (RUSE)</li>
-      <li>Committee Member of the 2022 International Conference on Big Data and Artificial Intelligence (ICBDAI 2022)</li>
-    </ul>
+    </main>
 
-    <!-- 技术技能 -->
-    <h2 class="section-title">Technical Skills</h2>
-    <ul>
-      <li>Matlab, Python, EViews, STATA, Microfit, ArcGIS</li>
-    </ul>
+    <script>
+        // --- Dark Mode Logic ---
+        const toggleBtn = document.getElementById('themeToggle');
+        const icon = toggleBtn.querySelector('i');
+        const html = document.documentElement;
 
-    <!-- 同行评审 -->
-    <h2 class="section-title">Refereeing Activity</h2>
-    <ul>
-      <li>Macroeconomic Dynamics</li>
-      <li>Energy &amp; Environment</li>
-      <li>Frontiers in Environmental Sciences</li>
-      <li>Journal of Chinese Economic and Business Studies</li>
-    </ul>
+        // Check local storage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
+        }
 
-      <!-- 指导学生-->
-    <h2 class="section-title">Supervised Students</h2>
-    <ul>
-      <li><a href="https://karcen.github.io/zhengjiacheng.github.io/" target="_blank">Jiacheng Zheng, Undergraduate</a></li>
-      <li>Lingzhuo Zhao, Undergraduate</li>
-      <li>Ziming Zhao, Undergraduate</li>
-    </ul>
-    
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
 
-    <!-- 推荐人 -->
-    <h2 class="section-title">References</h2>
-    <ul>
-      <li>
-        <b>Prof. Eric Girardin</b><br>
-        Aix-Marseille University, School of Economics, France<br>
-        Phone: +33(0) 413552552<br>
-        Email: <a href="mailto:eric.girardin@univ-amu.fr">eric.girardin@univ-amu.fr</a>
-      </li>
-    </ul>
+        function updateIcon(theme) {
+            if (theme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
 
-    <!-- 下载简历按钮 -->
-    <a href="CV_JAMAL_KHAN.pdf" class="button" download>Download CV</a>
-  </div>
+        // --- Show More Publications Logic ---
+        const showMoreBtn = document.getElementById('show-more-btn');
+        const morePubs = document.getElementById('more-pubs');
+
+        showMoreBtn.addEventListener('click', () => {
+            if (morePubs.classList.contains('hidden-content')) {
+                morePubs.classList.remove('hidden-content');
+                morePubs.style.animation = 'fadeIn 0.5s ease';
+                showMoreBtn.textContent = 'Show Less';
+            } else {
+                morePubs.classList.add('hidden-content');
+                showMoreBtn.textContent = 'Show All Publications';
+                // Scroll back to publications top smoothly
+                document.getElementById('publications').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // --- Copyright Year ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
